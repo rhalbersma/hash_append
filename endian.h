@@ -19,6 +19,15 @@ namespace xstd
 // 1.  Is this system big or little endian?
 // 2.  Is the "desired endian" of some class or function the same as the
 //     native endian?
+
+#ifdef _MSC_VER
+
+#define __ORDER_LITTLE_ENDIAN__ 1234
+#define __ORDER_BIG_ENDIAN__    4321
+#define __BYTE_ORDER__          __ORDER_LITTLE_ENDIAN__
+
+#endif
+
 enum class endian
 {
     native = __BYTE_ORDER__,
